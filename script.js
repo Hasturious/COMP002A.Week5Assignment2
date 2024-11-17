@@ -25,16 +25,27 @@
 		</ul>
 */
 
-const thingy = document.getElementById("balloon")
+const balloon = document.getElementById("balloon")
 //This selects our balloon element
+
+function balloonIncrease() {
+    //this is the function that will be called on the up or down keys
+    const fontSize = parseFloat(window.getComputedStyle(balloon).fontSize);
+    const fontResize = fontSize * 1.1;
+    balloon.style.fontSize = fontResize + "px";
+}
 
 document.addEventListener("keydown", (event) => {
 //This listens for a keypress
     if (event.key === "ArrowUp") {
     //Listens if the specific key was the up arrow
     console.log ("Test") //Before I figure out how to increase the emojis size, this will do.
+    balloonIncrease(1)
+    //calls the resize function
     }
 })
+
+// https://stackoverflow.com/questions/56210352/how-do-i-get-the-current-font-size-of-selected-text-using-javascript 
 
 // 2. The index.html page has a tabbed layout. Make the default state of the layout show
 // the first tab, and make it so that when you click the links at the top the correct
