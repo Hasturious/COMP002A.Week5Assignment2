@@ -29,7 +29,7 @@ const balloon = document.getElementById("balloon")
 //This selects our balloon element
 
 function balloonIncrease() {
-    //this is the function that will be called on the up or down keys
+    //this is the function that will be called on the up key
     const fontSize = parseFloat(window.getComputedStyle(balloon).fontSize);
     //parseFloat converts the number to a floating point value. The rest of this code just grabs us the value of the balloons font size
     const fontResize = fontSize * 1.1;
@@ -38,13 +38,23 @@ function balloonIncrease() {
     //this sets the new font size of the balloon is equal however many more pixels. The px is a string because thats how CSS sees units
 }
 
+function balloonDecrease() {
+    const fontSize = parseFloat(window.getComputedStyle(balloon).fontSize);
+    const fontResize = fontSize * .9;
+    //Decreases the fontsize value by 10%
+    balloon.style.fontSize = fontResize + "px";
+}
+
 document.addEventListener("keydown", (event) => {
 //This listens for a keypress
     if (event.key === "ArrowUp") {
     //Listens if the specific key was the up arrow
     // console.log ("Test") Debug line from before I got the balloonIncrease / ballonDecrease functions to work
-    balloonIncrease(1)
+    balloonIncrease()
     //calls the resize function
+    }
+    if (event.key === "ArrowDown") {
+        balloonDecrease()
     }
 })
 
