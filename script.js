@@ -68,11 +68,6 @@ window.addEventListener("load", function() {
     // calls the function
 });
 
-/*
-    <li><a id="tab1Link" href="">Tab 1</a></li>
-	<li><a id="tab2Link" href="">Tab 2</a></li>
-	<li><a id="tab3Link" href="">Tab 3</a></li>
-*/
 
 document.getElementById("tab1Link").addEventListener("click", function(event) {
     // Grabs the first link and listens for a click
@@ -83,6 +78,7 @@ document.getElementById("tab1Link").addEventListener("click", function(event) {
     hideElement(document.getElementById("tab3"));
     // if im going to tab 1 from tab 2 or tab 3 I would want to hide tabs 2 and 3 which is what the function above does
     document.getElementById("tab1").style.display = "block"
+    // reveals the tab
 });
 
 document.getElementById("tab2Link").addEventListener("click", function(event) {
@@ -90,4 +86,13 @@ document.getElementById("tab2Link").addEventListener("click", function(event) {
     hideElement(document.getElementById("tab1"));
     hideElement(document.getElementById("tab3"));
     document.getElementById("tab2").style.display = "block"
+    //same as above but with the tabs switched around
+});
+
+document.getElementById("tab3Link").addEventListener("click", function(event) {
+    event.preventDefault();
+    hideElement(document.getElementById("tab1"));
+    hideElement(document.getElementById("tab2"));
+    document.getElementById("tab3").style.display = "block"
+    //same as above but with the tabs switched around
 });
