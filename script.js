@@ -60,10 +60,34 @@ function hideElement(element) {
      // Hides the element
 }
 
-window.addEventListener('load', function() {
-    // On loading the page this event triggers
+window.addEventListener("load", function() {
+    // On loading the page this event triggers. The anonymous function lets the rest of the block run when the page is loaded
     const nonDefault = document.querySelectorAll('#tab2, #tab3');
     // this selects both tabs
     nonDefault.forEach(hideElement)
     // calls the function
+});
+
+/*
+    <li><a id="tab1Link" href="">Tab 1</a></li>
+	<li><a id="tab2Link" href="">Tab 2</a></li>
+	<li><a id="tab3Link" href="">Tab 3</a></li>
+*/
+
+document.getElementById("tab1Link").addEventListener("click", function(event) {
+    // Grabs the first link and listens for a click
+    event.preventDefault();
+    // prevents tab from being reloaded
+    // console.log('Tab 1 clicked'); // debugging code to test functionality
+    hideElement(document.getElementById("tab2"));
+    hideElement(document.getElementById("tab3"));
+    // if im going to tab 1 from tab 2 or tab 3 I would want to hide tabs 2 and 3 which is what the function above does
+    document.getElementById("tab1").style.display = "block"
+});
+
+document.getElementById("tab2Link").addEventListener("click", function(event) {
+    event.preventDefault();
+    hideElement(document.getElementById("tab1"));
+    hideElement(document.getElementById("tab3"));
+    document.getElementById("tab2").style.display = "block"
 });
