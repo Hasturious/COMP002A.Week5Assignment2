@@ -12,19 +12,6 @@
 // Hint: Make sure you quote the emoji characters. They are strings, after all.
 // Hint: document.getElementById("balloon") will get the balloon element on the page.
 
-
-/*
-<body>
-	<h1>Assignment 7</h1>
-	<p id="balloon">🎈</p>
-	<div id="tabbed-layout">
-		<ul>
-			<li><a id="tab1Link" href="">Tab 1</a></li>
-			<li><a id="tab2Link" href="">Tab 2</a></li>
-			<li><a id="tab3Link" href="">Tab 3</a></li>
-		</ul>
-*/
-
 const balloon = document.getElementById("balloon")
 //This selects our balloon element
 
@@ -68,3 +55,15 @@ document.addEventListener("keydown", (event) => {
 // to at minimum add listeners to each link and toggle the display of the tab contents.
 // Hint: display: none; hides an element, and display: block; will bring it
 
+function hideElement(element) {
+    element.style.display = "none";
+     // Hides the element
+}
+
+window.addEventListener('load', function() {
+    // On loading the page this event triggers
+    const nonDefault = document.querySelectorAll('#tab2, #tab3');
+    // this selects both tabs
+    nonDefault.forEach(hideElement)
+    // calls the function
+});
